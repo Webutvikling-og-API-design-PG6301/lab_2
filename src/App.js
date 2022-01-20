@@ -4,8 +4,9 @@ import Navbar from "./components/navbar";
 import Home from "./pages/Home";
 import ShowAnswer from "./pages/ShowAnswer";
 import ShowQuestion from "./pages/ShowQuestion";
+import "./app.css";
 const App = () => {
-  const [isAnswered, setIsAnswered] = useState("");
+  const [isAnswered, setIsAnswered] = useState(false);
   return (
     <div>
       <BrowserRouter>

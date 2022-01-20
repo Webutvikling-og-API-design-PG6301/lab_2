@@ -3,16 +3,22 @@ import { Link } from "react-router-dom";
 import "./nav.css";
 const Navbar = () => {
   return (
-    <div>
-      <nav>
-        <ul>
-          <Link to="/">New quiz</Link>
+    <div className="container">
+      <nav className="nav">
+        <ul className="nav_links">
+          <Link className="nav_link" to="/">
+            New quiz
+          </Link>
         </ul>
-        <ul>
-          <Link to="/question">Show question</Link>
+        <ul className="nav_links">
+          <Link className="nav_link" to="/question">
+            Show question
+          </Link>
         </ul>
-        <ul>
-          <Link to="/answer/*">Show answer</Link>
+        <ul className="nav_links">
+          <Link className="nav_link" to="/answer/*">
+            Show answer
+          </Link>
         </ul>
       </nav>
     </div>

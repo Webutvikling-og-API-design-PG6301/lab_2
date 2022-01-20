@@ -1,6 +1,7 @@
 import React, { useState } from "react";
 import { randomQuestion, isCorrectAnswer } from "../components/questions";
 import { useNavigate } from "react-router-dom";
+import "./home.css";
 const Home = ({ setIsAnswered }) => {
   const [question, setQuestion] = useState(randomQuestion());
   const [storeAnswer, setStoreAnswer] = useState(false);
@@ -9,23 +10,27 @@ const Home = ({ setIsAnswered }) => {
 
   const handleCorrectAnswer = (answer) => {
     if (isCorrectAnswer(question, answer)) {
-      setIsAnswered("Correct");
+      setIsAnswered(true);
       navigate("/answer/correct");
     } else {
-      setIsAnswered("Wrong");
+      setIsAnswered(false);
       navigate("/answer/wrong");
     }
   };
   console.log(storeAnswer);
   return (
-    <div>
+    <div className="container">
       <h1>{question.question}</h1>
-      <div>
+      <div className="buttons">
         {Object.keys(question.answers)
           .filter((value) => question.answers[value])
           .map((answer) => {
             return (
-              <button onClick={() => handleCorrectAnswer(answer)} key={answer}>
+              <button
+                className="button"
+                onClick={() => handleCorrectAnswer(answer)}
+                key={answer}
+              >
                 {question.answers[answer]}
               </button>
             );
