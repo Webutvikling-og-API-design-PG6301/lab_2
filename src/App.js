@@ -7,20 +7,38 @@ import ShowQuestion from "./pages/ShowQuestion";
 import "./app.css";
 const App = () => {
   const [isAnswered, setIsAnswered] = useState(false);
+  const [storeCorrectAnswer, setStoreCorrectAnswer] = useState({
+    title: "",
+    answer: "",
+  });
   return (
     <div>
       <BrowserRouter>
         <Navbar />
         <Routes>
-          <Route path="/" element={<Home setIsAnswered={setIsAnswered} />} />
+          <Route
+            path="/"
+            element={
+              <Home
+                setStoreCorrectAnswer={setStoreCorrectAnswer}
+                setIsAnswered={setIsAnswered}
+              />
+            }
+          />
           <Route path="/question" element={<ShowQuestion />} />
           <Route
             path="/answer/*"
             element={
               isAnswered ? (
-                <ShowAnswer title="Correct" />
+                <ShowAnswer
+                  storeCorrectAnswer={storeCorrectAnswer}
+                  title="Correct"
+                />
               ) : (
-                <ShowAnswer title="Wrong" />
+                <ShowAnswer
+                  storeCorrectAnswer={storeCorrectAnswer}
+                  title="Wrong"
+                />
               )
             }
           />

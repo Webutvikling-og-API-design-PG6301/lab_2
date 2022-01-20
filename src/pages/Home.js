@@ -2,7 +2,7 @@ import React, { useState } from "react";
 import { randomQuestion, isCorrectAnswer } from "../components/questions";
 import { useNavigate } from "react-router-dom";
 import "./home.css";
-const Home = ({ setIsAnswered }) => {
+const Home = ({ setIsAnswered, setStoreCorrectAnswer }) => {
   const [question, setQuestion] = useState(randomQuestion());
   const [storeAnswer, setStoreAnswer] = useState(false);
 
@@ -12,11 +12,16 @@ const Home = ({ setIsAnswered }) => {
     if (isCorrectAnswer(question, answer)) {
       setIsAnswered(true);
       navigate("/answer/correct");
+      setStoreCorrectAnswer({
+        title: question.question,
+        answer: question.answers[answer],
+      });
     } else {
       setIsAnswered(false);
       navigate("/answer/wrong");
     }
   };
+
   console.log(storeAnswer);
   return (
     <div className="container">
