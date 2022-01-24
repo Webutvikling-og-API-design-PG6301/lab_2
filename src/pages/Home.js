@@ -1,7 +1,7 @@
 import React, { useState } from "react";
 import { randomQuestion, isCorrectAnswer } from "../components/questions";
 import { useNavigate } from "react-router-dom";
-import "./home.css";
+//import "./home.css";
 const Home = ({ setIsAnswered, setStoreCorrectAnswer }) => {
   const [question, setQuestion] = useState(randomQuestion());
   const [storeAnswer, setStoreAnswer] = useState(false);

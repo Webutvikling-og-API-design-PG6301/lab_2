@@ -1,0 +1,3 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`show question page should give me some content 1`] = `"<div><h1>This is show question component</h1></div>"`;
